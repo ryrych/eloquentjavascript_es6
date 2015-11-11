@@ -32,3 +32,7 @@ You will need the following things properly installed on your computer.
 - Looping a triangle ✓
 - FizzBuzz ✓
 - Chess board ✓
+
+## Todo
+
+- Fix jshint complains about `'export' is only available in ES6 (use esnext option). (W119)`
