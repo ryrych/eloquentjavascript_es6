@@ -11,3 +11,10 @@ My *TDD* attempt to do exercises from [Eloquent JavaScript](from http://eloquent
 
 Enjoy!
 
+## Tested Exercised Status
+
+### Chapter 2. Program Structure 100%
+
+- Looping a triangle ✓
+- FizzBuzz ✓
+- Chess board ✓
