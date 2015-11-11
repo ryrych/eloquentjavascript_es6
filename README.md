@@ -11,6 +11,13 @@ My *TDD* attempt to do exercises from [Eloquent JavaScript](from http://eloquent
 
 Enjoy!
 
+## Installation
+
+- `git clone git@github.com:ryrych/eloquentjavascript_es6.git`
+- `cd eloquentjavascript_es6`
+- `npm install`
+- `npm test`
+
 ## Tested Exercised Status
 
 ### Chapter 2. Program Structure 100%
