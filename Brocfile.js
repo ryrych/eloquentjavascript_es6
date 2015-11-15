@@ -1,55 +1,64 @@
-// Node path module
-var path = require('path');
+var compileModules = require('broccoli-babel-transpiler');
+var pickFiles      = require('broccoli-funnel');
+var concat         = require('broccoli-concat');
+var mergeTrees     = require('broccoli-merge-trees');
+var path           = require('path');
 
-// Babel transpiler
-var babel = require('broccoli-babel-transpiler');
-// filter trees (subsets of files)
-var funnel = require('broccoli-funnel');
-// concatenate trees
-var concat = require('broccoli-concat');
-// merge trees
-var mergeTrees = require('broccoli-merge-trees');
-
-const pkg = require('./package.json');
-
-const src = 'src';
-
-const indexHtml = funnel(src, {
-  files: ['index.html']
+var examples = pickFiles('src', {
+  srcDir: '/',
+  include: ['**/*.js'],
+  destDir: '/examples'
 });
 
-const js = babel(src, {
-  stage: 0,
-  moduleIds: true,
-  modules: 'amd',
-
-  // Transforms /index.js files to use their containing directory name
-  getModuleId: function (name) {
-    name = pkg.name + '/' + name;
-    return name.replace(/\/index$/, '');
-  },
-
-  // Fix relative imports inside /index's
-  resolveModuleSource: function (source, filename) {
-    var match = filename.match(/(.+)\/index\.\S+$/i);
-
-    // is this an import inside an /index file?
-    if (match) {
-      var path = match[1];
-      return source
-      .replace(/^\.\//, path + '/')
-        .replace(/^\.\.\//, '');
-    } else {
-      return source;
-    }
-  }
+var tests = pickFiles('test', {
+  srcDir: '/',
+  include: ['**/*.js'],
+  destDir: '/tests'
 });
 
-const main = concat(js, {
-  inputFiles: [
-    '**/*.js'
-  ],
-  outputFile: '/' + pkg.name + '.js'
+var compiledExamples  = compileModules(examples, {
+  browserPolyfill: true,
+  modules: 'umd',
+  moduleIds: true
 });
 
-module.exports = mergeTrees([main, indexHtml]);
+var compiledTests  = compileModules(tests, {
+  browserPolyfill: true,
+  modules: 'umd',
+  moduleIds: true
+});
+
+// Concatenate all the JS files into a single file
+var examplesConcat = concat(compiledExamples, {
+  inputFiles: ['**/*.js'],
+  outputFile: '/examples.js'
+});
+
+var testsConcat = concat(compiledTests, {
+  inputFiles: ['**/*.js'],
+  outputFile: '/tests.js'
+});
+
+var cpToTest = function(absPath) {
+  var dir = path.dirname(absPath);
+  var filename = path.basename(absPath);
+  return pickFiles(dir, {
+    srcDir: '/',
+    files: [filename],
+    destDir: '/tests'
+  });
+}
+
+var testIndex = cpToTest('test/index.html');
+var loader = cpToTest('node_modules/loader.js/loader.js');
+
+// Grab all our trees and
+// export them as a single and final tree
+module.exports = mergeTrees([
+  compiledExamples,
+  compiledTests,
+  testIndex,
+  examplesConcat,
+  testsConcat,
+  loader
+]);
