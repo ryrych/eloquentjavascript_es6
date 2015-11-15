@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { renderTriangle } from '../../src/02_1_looping_a_triangle';
+import { renderTriangle } from '../examples';
 
 describe('02_01:looping a triangle', () => {
 

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { myMin } from '../../src/03_1_minimum';
+import { myMin } from '../examples';
 
 describe('03_1:fizzbuzz', () => {
 

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { renderChess } from '../../src/02_3_chess_board';
+import { renderChess } from '../examples';
 
 describe('02_3:chess', () => {
 
