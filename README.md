@@ -33,6 +33,10 @@ You will need the following things properly installed on your computer.
 - FizzBuzz ✓
 - Chess board ✓
 
+## Test Environment
+
+Broccoli+Babel+Testem setup is based on [eight-bit-dream](https://github.com/code0100fun/eight-bit-dream) repo by [**Chase McCarthy**](https://twitter.com/code0100fun). **Thanks**!
+
 ## Todo
 
 - Fix jshint complains about `'export' is only available in ES6 (use esnext option). (W119)`
