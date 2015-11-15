@@ -1,30 +1,26 @@
 {
-    "name": "eloquentjavascript_es6",
-    "version": "0.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "broccoli serve",
-        "build": "rm -rf dist && broccoli build dist",
-        "test": "mocha"
-    },
-    "keywords": [
-        "broccoli",
-        "babel"
-    ],
-    "author": "",
-    "repository": "",
-    "license": "MIT",
-    "devDependencies": {
-        "babel": "^5.0.0",
-        "broccoli": "^0.16.2",
-        "broccoli-babel-transpiler": "5.3.0",
-        "broccoli-concat": "0.0.13",
-        "broccoli-funnel": "^0.2.3",
-        "broccoli-merge-trees": "^0.2.1",
-        "chai": "^2.2.0",
-        "glob": "^5.0.3",
-        "mocha": "^2.2.4",
-        "mocha-jshint": "^1.0.0"
-    }
+  "name": "eloquentjavascript_es6",
+  "version": "0.0.1",
+  "description": "Eloquent JavaScript Examples With Tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "testem",
+    "build": "rm -rf dist/ tmp/ && broccoli build dist"
+  },
+  "author": "Wojtek Ryrych",
+  "license": "MIT",
+  "devDependencies": {
+    "broccoli": "^0.16.5",
+    "broccoli-babel-transpiler": "^5.4.2",
+    "broccoli-concat": "0.0.13",
+    "broccoli-funnel": "^0.2.3",
+    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-static-compiler": "^0.2.1",
+    "chai": "^2.2.0",
+    "glob": "^5.0.3",
+    "mocha": "^2.2.4",
+    "mocha-jshint": "^1.0.0",
+    "loader.js": "^3.3.0",
+    "testem": "^0.9.2"
+  }
 }
