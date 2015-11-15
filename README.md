@@ -33,6 +33,11 @@ You will need the following things properly installed on your computer.
 - FizzBuzz ✓
 - Chess board ✓
 
+### Chapter 3. Functions
+
+- Minimum ✓
+- Recursion ✓
+
 ## Test Environment
 
 Broccoli+Babel+Testem setup is based on [eight-bit-dream](https://github.com/code0100fun/eight-bit-dream) repo by [**Chase McCarthy**](https://twitter.com/code0100fun). **Thanks**!
