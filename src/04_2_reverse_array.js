@@ -1,8 +1,8 @@
 export function reverseArray(array) {
   let newArray = [];
-  for(let i = 0; i < array.length; i++) {
-    newArray.unshift(array[i]);
-  }
+  array.forEach(function(value) {
+    newArray.unshift(value);
+  });
   return newArray;
 }
 
