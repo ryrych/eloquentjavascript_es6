@@ -1,9 +1,9 @@
 export function renderTriangle(count = 8, sign = '#') {
   var result = '';
-
-  for (let line = sign; line.length < count; line += sign) {
-    result += line + "\n";
+  var line = sign;
+  while (line.length < count) {
+    result += line + '\n';
+    line += sign;
   }
-
   return result;
 }
