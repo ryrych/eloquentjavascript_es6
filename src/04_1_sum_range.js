@@ -1,7 +1,5 @@
 export function sum(range) {
-  return range.reduce(function(a, b) {
-    return a + b;
-  });
+  return range.reduce((a, b) => a + b, 0);
 }
 
 export function range(start, end, step = 1) {

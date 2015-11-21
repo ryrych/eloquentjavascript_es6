@@ -3,13 +3,5 @@ export function countBeans(phrase) {
 }
 
 export function countChar(phrase, letter) {
-  var numberOfOccurence = 0;
-
-  phrase.split('').forEach(function(l) {
-    if (l === letter) {
-      numberOfOccurence += 1;
-    }
-  });
-
-  return numberOfOccurence;
+  return phrase.split('').filter(l => l === letter).length;
 }

@@ -1,8 +1,6 @@
 export function reverseArray(array) {
   let newArray = [];
-  array.forEach(function(value) {
-    newArray.unshift(value);
-  });
+  array.forEach(value => newArray.unshift(value));
   return newArray;
 }
 
